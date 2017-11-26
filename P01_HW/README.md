@@ -6,7 +6,7 @@ First Java homework was focused on finding max value(s) from input double array
 	* Temporarily solved by writing many methods with different input
 2. Is the "array" solution still O(n)?
 
-##Findings
+## Findings
 1. assertThrows with lambda expressions for testing exceptions
 
 ## Questions
