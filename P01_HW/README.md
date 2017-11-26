@@ -1,10 +1,13 @@
 # Find the biggest number in the given input array
-First Java homework was focused on finding max value from input double array
+First Java homework was focused on finding max value(s) from input double array
 
 ## Issues
 1. Problem to run ParameterizedTest in JUnit 5
 	* Temporarily solved by writing many methods with different input
-2. 
+2. Is the "array" solution still O(n)?
+
+##Findings
+1. assertThrows with lambda expressions for testing exceptions
 
 ## Questions
 1. Should we use @BeforeAll for init?
@@ -13,5 +16,5 @@ First Java homework was focused on finding max value from input double array
 3. Does it make sense to add code coverage to projects?
 
 ## Missing functionality
-Find n biggest distinctive (= each number is different) numbers in the given input array. The returned numbers are sorted descending (= from the biggest to the smallest).
+Find n biggest distinctive using arrays. Currently, implemented only using SortedSet
 

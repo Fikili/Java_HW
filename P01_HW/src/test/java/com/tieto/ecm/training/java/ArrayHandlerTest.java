@@ -1,7 +1,9 @@
 package com.tieto.ecm.training.java;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -38,6 +40,7 @@ class ArrayHandlerTest {
 		arrayHandler = new ArrayHandler();
 	}
 
+	// Find 1 max value
 	@Test
 	void testFindMaxCommonArray() {
 		double[] inputArray = { 23.1d, -56.794611d, -0.0e10, 1.5e2, 42 };
@@ -90,5 +93,46 @@ class ArrayHandlerTest {
 		double[] inputArray = { 23.1d, -56.794611d, -0.0e10, 1.5e2, 42 };
 		assertNotEquals(42.0, arrayHandler.findMax(inputArray));
 	}
+
+	// Find x top values
+	@Test
+	void testFindMaxArrayCommonArray() {
+		double[] inputArray = { 23.1d, -56.794611d, -0.0e10, 1.5e2, 42 };
+		double[] expectedResult = {150, 42, 23.1};
+		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 3));
+	}
 	
+	@Test
+	void testFindMaxArraySameNumbers() {
+		double[] inputArray = { 23.1d, 2.31e1, 23.1 };
+		double[] expectedResult = {23.1};
+		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 3));
+	}
+	
+	@Test
+	void testFindMaxArrayParamGreaterThanArraySize() {
+		double[] inputArray = { 23.1d, 42 };
+		double[] expectedResult = { 42.0, 23.1d,  };
+		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 8));
+	}
+	
+	@Test
+	void testFindMaxArrayNullParam() {
+		double[] inputArray = null;
+		double[] expectedResult = {};
+		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 3));
+	}
+	
+	@Test
+	void testFindMaxArrayEmptyArray() {
+		double[] inputArray = {};
+		double[] expectedResult = {};
+		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 3));
+	}
+	
+	@Test
+	void testFindMaxArrayNegativeParam() {
+		double[] inputArray = { 23.1d, -56.794611d, -0.0e10, 1.5e2, 42 };
+		assertThrows(IllegalArgumentException.class, ()->{arrayHandler.findMax(inputArray, -3);} );
+	}
 }
