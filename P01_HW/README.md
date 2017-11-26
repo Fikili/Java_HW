@@ -9,6 +9,8 @@ First Java homework was focused on finding max value from input double array
 ## Questions
 1. Should we use @BeforeAll for init?
 2. How to use ParameterizedTest in JUnit 5?
+	* Should @MethodSource be used?
+3. Does it make sense to add code coverage to projects?
 
 ## Missing functionality
 Find n biggest distinctive (= each number is different) numbers in the given input array. The returned numbers are sorted descending (= from the biggest to the smallest).
