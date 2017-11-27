@@ -15,16 +15,18 @@ public class ArrayHandler {
      *         If the array is empty or {@code null}, returns {@code Double.NaN}
      */
 	public double findMax(double[] input) {
-		double maxValue = Double.NEGATIVE_INFINITY; 
-		if (input != null && input.length > 0) {
-			for (int i = 0; i < input.length; i++) {
-				if (input[i] > maxValue) {
-					maxValue = input[i]; 
-				}
-			}
-			return maxValue;
+		if (input == null || input.length == 0) {
+			return Double.NaN;
 		}
-    	return Double.NaN;
+
+		double maxValue = Double.NEGATIVE_INFINITY;
+
+		for (double d : input) {
+			if (d > maxValue) {
+				maxValue = d;
+			}
+		}
+		return maxValue;
 	}
 	
 	/**
