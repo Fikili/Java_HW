@@ -98,26 +98,34 @@ public class ArrayHandler {
 	public double[] findMax(double[] input, int n) {
 		if (n < 0) {
 			throw new IllegalArgumentException("n has to be non-negative number");
-		} else if (input != null && input.length > 0 && n > 0) {
-			// Copy and sort values from array to set
-			SortedSet<Double> maxValues = new TreeSet<>();
-			for (int i = 0; i < input.length; i++) {
-				maxValues.add(input[i]);
-			}
-			// Recalculate size of returned array
-			n = (maxValues.size() < n) ? maxValues.size() : n;
-			double[] mVal = new double[n];
-			// Greatest numbers are in the end -> Let's take the last one and remove it
-			for (int j = 0; j < n; j++) {
-				double temp = maxValues.last();
-				mVal[j] = temp;
-				maxValues.remove(temp);
-			}
+		}
 
-			return mVal;
-		} else {
+		if (input == null || input.length == 0 || n == 0) {
 			return new double[0];
 		}
-	}
+		
+		// Copy and sort values from array to set
+		SortedSet<Double> maxValuesSet = new TreeSet<>();
+		for (double d : input) {
+			maxValuesSet.add(d);
+		}
+		
+		n = (maxValuesSet.size() < n) ? maxValuesSet.size() : n;
+		// Initialize array 
+        double[] maxValuesArray = new double[n];
 
+		// Greatest numbers are in the end -> Let's take the last one and remove it
+		
+        // Example with stream
+        //maxValuesSet.stream().skip(maxValuesSet.size() - n).forEach(maxValuesArray[0] = );
+        
+        for (int i = 0; i < n; i++) {
+			double temp = maxValuesSet.last();
+			maxValuesArray[i] = temp;
+			maxValuesSet.remove(temp);
+		}
+		
+		return maxValuesArray;
+	}
+	
 }
