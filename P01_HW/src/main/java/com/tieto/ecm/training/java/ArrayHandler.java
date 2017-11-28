@@ -64,37 +64,32 @@ public class ArrayHandler {
 
 /* 
    First test using arrays -> Replaced by SortedSet because of easier implementation :)
-   
+*/
+    /*
 	public double[] findMax(double[] input, int n) {
-		double[] maxValues;
+		
 		if (n < 0) {
 			throw new IllegalArgumentException("n has to be non-negative number");
-		} else if (input != null && input.length > 0) {
-			// n cannot be higher than array length
-			n = (input.length < n) ? input.length : n;
-			maxValues = new double[n];
-			Arrays.fill(maxValues, Double.NEGATIVE_INFINITY);
-			for (int i = 0; i < input.length; i++) {
-				for (int j = 0; j < maxValues.length; j++) {
-					if (input[i] > maxValues[j]) {
-						double tempValue = maxValues[j];
-						maxValues[j] = input[i];
-						if (j < n) {
-							maxValues[j + 1] = tempValue;
-						}
-						break;
-					}
-				}
-			}
-			
-			return maxValues;
-		} else {
-			return new double[0];			
 		}
 		
+		if (input == null || input.length == 0) {
+			return new double[0];	
+		}
+		
+		// n cannot be higher than array length
+		n = (input.length < n) ? input.length : n;
+		double[] maxValues = new double[n];
+		
+		Arrays.fill(maxValues, Double.NEGATIVE_INFINITY);
+		
+
+		
+		return maxValues;
 	}
-    */
+	*/
     
+    
+
 	public double[] findMax(double[] input, int n) {
 		if (n < 0) {
 			throw new IllegalArgumentException("n has to be non-negative number");
@@ -116,8 +111,9 @@ public class ArrayHandler {
 
 		// Greatest numbers are in the end -> Let's take the last one and remove it
 		
-        // Example with stream
-        //maxValuesSet.stream().skip(maxValuesSet.size() - n).forEach(maxValuesArray[0] = );
+        // Example with stream and lambda
+        //maxValuesSet.stream().skip(maxValuesSet.size() - n).forEach((a) -> System.out.println(a));
+        //maxValuesSet.stream().skip(maxValuesSet.size() - n).forEach(System.out::println);
         
         for (int i = 0; i < n; i++) {
 			double temp = maxValuesSet.last();
@@ -127,5 +123,5 @@ public class ArrayHandler {
 		
 		return maxValuesArray;
 	}
-	
+
 }

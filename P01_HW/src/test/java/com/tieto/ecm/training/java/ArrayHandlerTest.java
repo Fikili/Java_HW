@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 //@RunWith(Parameterized.class)
@@ -33,10 +34,10 @@ class ArrayHandlerTest {
 	}
 	*/	
 	
-	static ArrayHandler arrayHandler;
+	ArrayHandler arrayHandler;
 
-	@BeforeAll
-	static void init() {
+	@BeforeEach
+	void init() {
 		arrayHandler = new ArrayHandler();
 	}
 
@@ -97,9 +98,9 @@ class ArrayHandlerTest {
 	// Find x top values
 	@Test
 	void testFindMaxArrayCommonArray() {
-		double[] inputArray = { 23.1d, -56.794611d, -0.0e10, 1.5e2, 42 };
-		double[] expectedResult = {150, 42, 23.1};
-		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 3));
+		double[] inputArray = { 15.2, -10.0, 23.1d, 36.9, -56.794611d, -0.0e10, 1.5e2, 42.0, 55.7 };
+		double[] expectedResult = {150.0, 55.7, 42.0, 36.9, 23.1};
+		assertArrayEquals(expectedResult, arrayHandler.findMax(inputArray, 5));
 	}
 	
 	@Test
