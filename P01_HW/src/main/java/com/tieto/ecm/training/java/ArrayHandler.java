@@ -1,11 +1,11 @@
 package com.tieto.ecm.training.java;
 
 import java.util.Arrays;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 public class ArrayHandler {
 
+	double[] maxValues;
+	
 	/**
      * Find the biggest number in the given input array using comparing current value and max value
      * This algorithm offers O(n) performance
@@ -62,12 +62,7 @@ public class ArrayHandler {
      * @throw IllegalArgumentException if {@code n < 0}
      */
 
-/* 
-   First test using arrays -> Replaced by SortedSet because of easier implementation :)
-*/
-    /*
 	public double[] findMax(double[] input, int n) {
-		
 		if (n < 0) {
 			throw new IllegalArgumentException("n has to be non-negative number");
 		}
@@ -78,18 +73,55 @@ public class ArrayHandler {
 		
 		// n cannot be higher than array length
 		n = (input.length < n) ? input.length : n;
-		double[] maxValues = new double[n];
-		
+		maxValues = new double[n];
+		// Fill array by NEGATIVE_INFINITY
 		Arrays.fill(maxValues, Double.NEGATIVE_INFINITY);
-		
+		for (double item : input) {
+			sortElementIntoArray(maxValues, item);
+		}
 
-		
-		return maxValues;
+		return removeNegativeInfinity(maxValues);
 	}
-	*/
-    
-    
 
+	private double[] removeNegativeInfinity(double[] maxValues) {
+		double[] maxValuesWithoutInfinity;
+		int i = 0;
+		for (double d : maxValues) {
+			if(d != Double.NEGATIVE_INFINITY) {
+				i++;
+			}
+		}
+		// Init of new Array
+		maxValuesWithoutInfinity = new double[i];
+		// Copy items (src, srcPos, dest, destPos, length);
+		System.arraycopy(maxValues, 0, maxValuesWithoutInfinity, 0, i);
+		return maxValuesWithoutInfinity;
+	}
+
+	private void sortElementIntoArray(double[] maxValues, double element) {
+		for (int i = 0; i < maxValues.length; i++) {
+			// If the value is same, don't do anything
+			if (element == maxValues[i]) {
+				return;
+			}
+			
+			// Let's put element to relevant position and shift other items
+			if (element > maxValues[i]) {
+				shiftArrayElements(maxValues, i);
+				maxValues[i] = element;
+				return;
+			}
+		}
+	}
+
+	private void shiftArrayElements(double[] maxValues, int i) {
+		// copy n-1 to n, n-2 to n-1, n-3 to n-2, ... 
+		for (int j = maxValues.length - 1; i < j; j--) {
+			maxValues[j] =maxValues[j - 1]; 
+		}
+	}    
+    
+/*
 	public double[] findMax(double[] input, int n) {
 		if (n < 0) {
 			throw new IllegalArgumentException("n has to be non-negative number");
@@ -123,5 +155,6 @@ public class ArrayHandler {
 		
 		return maxValuesArray;
 	}
-
+	*/
+	
 }
