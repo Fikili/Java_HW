@@ -19,10 +19,10 @@ public class Main {
 		//System.out.println(arrayHandler.findMaxUsingArrays(inputArray));
 		
 		// Return top 10 values -> Array is smaller -> Return possible
-		double[] mVal = arrayHandler.findMax(inputArray, 2);
-		if (mVal.length > 0) {
-			for (int i = 0; i < mVal.length; i++) {
-				System.out.println("mVal[" + i + "] = " + mVal[i]);			
+		double[] maxValuesArray = arrayHandler.findMax(inputArray, 2);
+		if (maxValuesArray.length > 0) {
+			for (int i = 0; i < maxValuesArray.length; i++) {
+				System.out.println("mVal[" + i + "] = " + maxValuesArray[i]);			
 			}						
 		} else {
 			System.out.println("mVal is empty array");
