@@ -14,7 +14,8 @@ First Java homework was focused on finding max value(s) from input double array
 2. How to use ParameterizedTest in JUnit 5?
 	* Should @MethodSource be used?
 3. Does it make sense to add code coverage to projects?
+4. Should I init string array with empty values?
 
 ## Missing functionality
-Find n biggest distinctive using arrays. Currently, implemented only using SortedSet
+Order String array with lower case values
 
