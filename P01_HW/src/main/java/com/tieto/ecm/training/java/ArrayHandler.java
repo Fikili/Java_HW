@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArrayHandler {
 
-	double[] maxValues;
+	private double[] maxValues;
 	
 	/**
      * Find the biggest number in the given input array using comparing current value and max value

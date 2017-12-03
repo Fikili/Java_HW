@@ -22,11 +22,15 @@ public class Main {
 		double[] maxValuesArray = arrayHandler.findMax(inputArray, 2);
 		if (maxValuesArray.length > 0) {
 			for (int i = 0; i < maxValuesArray.length; i++) {
-				System.out.println("mVal[" + i + "] = " + maxValuesArray[i]);			
+				System.out.println("maxValuesArray[" + i + "] = " + maxValuesArray[i]);			
 			}						
 		} else {
-			System.out.println("mVal is empty array");
+			System.out.println("maxValuesArray is empty array");
 		}
+		
+		StringArrayHandler stringArrayHandler = new StringArrayHandler();
+		String[] stringArray = {"Hello", "Ahoj", "Hola", "Ciao"};
+		stringArrayHandler.orderStringArray(stringArray, 3);
 		
 	}
 }
