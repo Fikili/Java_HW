@@ -69,4 +69,18 @@ class StringArrayHandlerTest {
 		String[] input = {"Hello", "Ahoj", "Hola", "Hallo", "Ciao", "Namaste", "Bonjour"};
 		assertThrows(IllegalArgumentException.class, ()->{stringArrayHandler.orderStringArray(input, -4);} );
 	}
+	
+	@Test
+	void testFindMaxArrayCommonCaseSensitivity() {
+		String[] input = {"Hello", "HAHA", "HeAlTh", "Hell", "hELLO", "heLIUM", "hAlT", "Hallo", "HELLO"};
+		String[] expected =  {"HAHA", "Hallo", "hAlT", "HeAlTh", "heLIUM", "Hell", "Hello", "hELLO", "HELLO"};
+		assertArrayEquals(expected,  stringArrayHandler.orderStringArray(input, 9));
+	}
+	
+	@Test
+	void testFindMaxArraySameValsCaseSensitivity() {
+		String[] input = {"Hello", "hELLO", "HELLO", "HELLo", "hEllO"};
+		String[] expected =  {"Hello", "hELLO", "HELLO", "HELLo", "hEllO"};
+		assertArrayEquals(expected,  stringArrayHandler.orderStringArray(input, 5));
+	}
 }

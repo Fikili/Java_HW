@@ -15,6 +15,7 @@ public class StringArrayHandler {
      *         If there are not enough distinctive values in the input array, 
      *         returns as many values  as possible and nothing more.
      *         If the array is empty or {@code null}, returns an empty array.
+     *         If value differs only in lower/upper case, keep the order from {@code input}
      * @throw IllegalArgumentException if {@code n < 0}
      */
 	
@@ -63,7 +64,8 @@ public class StringArrayHandler {
 			}
 			
 			// Let's put element to relevant position and shift other items
-			if (orderedStringArray[i].equals("") || element.compareTo(orderedStringArray[i]) < 0) {
+			if (orderedStringArray[i].equals("") || element.compareToIgnoreCase(orderedStringArray[i]) < 0) {
+				// Special handling values which are different only in lower/upper case can be added here
 				shiftArrayElements(orderedStringArray, i);
 				orderedStringArray[i] = element;
 				return;
