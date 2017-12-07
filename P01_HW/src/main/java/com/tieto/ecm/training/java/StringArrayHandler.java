@@ -1,7 +1,5 @@
 package com.tieto.ecm.training.java;
 
-import java.util.Arrays;
-
 public class StringArrayHandler {
 
     /**
@@ -33,7 +31,7 @@ public class StringArrayHandler {
 		n = (input.length < n) ? input.length : n;
 		orderedStringArray = new String[n];
 		// Fill array by empty string; Is it good approach? Or should be kept without init vals
-		Arrays.fill(orderedStringArray, "");
+		// Arrays.fill(orderedStringArray, "");
 		for (String element : input) {
 			sortElementIntoArray(orderedStringArray, element);
 		}
@@ -46,7 +44,7 @@ public class StringArrayHandler {
 		int i = 0;
 		// Init new array only with real values
 		for (String element : orderedStringArray) {
-			if ( ! element.equals("")) {
+			if (element != null) {
 				i++;
 			}
 		}
@@ -63,8 +61,14 @@ public class StringArrayHandler {
 				return;
 			}
 			
+			if (orderedStringArray[i] == null) {
+				orderedStringArray[i] = element;
+				return;
+			}
+			
 			// Let's put element to relevant position and shift other items
-			if (orderedStringArray[i].equals("") || element.compareToIgnoreCase(orderedStringArray[i]) < 0) {
+			//if (orderedStringArray[i].equals("") || element.compareToIgnoreCase(orderedStringArray[i]) < 0) {
+			if (element.compareToIgnoreCase(orderedStringArray[i]) < 0) {
 				// Special handling values which are different only in lower/upper case can be added here
 				shiftArrayElements(orderedStringArray, i);
 				orderedStringArray[i] = element;

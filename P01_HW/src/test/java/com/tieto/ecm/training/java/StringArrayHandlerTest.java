@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class StringArrayHandlerTest {
@@ -15,6 +16,7 @@ class StringArrayHandlerTest {
 		stringArrayHandler = new StringArrayHandler();
 	}
 	
+	@DisplayName("Test array with common input")
 	@Test
 	void orderStringArrayCommonInput() {
 		String[] input = {"Hello", "Ahoj", "Hola", "Hallo", "Ciao", "Namaste", "Bonjour"};
@@ -81,6 +83,27 @@ class StringArrayHandlerTest {
 	void testFindMaxArraySameValsCaseSensitivity() {
 		String[] input = {"Hello", "hELLO", "HELLO", "HELLo", "hEllO"};
 		String[] expected =  {"Hello", "hELLO", "HELLO", "HELLo", "hEllO"};
+		assertArrayEquals(expected,  stringArrayHandler.orderStringArray(input, 5));
+	}
+	
+	@Test
+	void testFindMaxArraySeveralEmptyStrings() {
+		String[] input = {"Hi", "", "Hello", "", "Hooray"};
+		String[] expected =  {"", "Hello", "Hi", "Hooray"};
+		assertArrayEquals(expected,  stringArrayHandler.orderStringArray(input, 5));
+	}
+	
+	@Test
+	void testFindMaxArrayStartWithEmptyString() {
+		String[] input = {"", "Hi", "Hello", "", "Hooray"};
+		String[] expected =  {"", "Hello", "Hi", "Hooray"};
+		assertArrayEquals(expected,  stringArrayHandler.orderStringArray(input, 5));
+	}
+	
+	@Test
+	void testFindMaxArrayEndWithEmptyString() {
+		String[] input = {"Hi", "Hello", "Hooray", ""};
+		String[] expected =  {"", "Hello", "Hi", "Hooray"};
 		assertArrayEquals(expected,  stringArrayHandler.orderStringArray(input, 5));
 	}
 }
