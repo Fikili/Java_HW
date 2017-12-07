@@ -20,5 +20,5 @@ First Java homework was focused on finding max value(s) from input double array
 	* NO! Let's use null because empty string is valid value
 
 ## Missing functionality
-Order String array with lower case values
+Nothing
 
