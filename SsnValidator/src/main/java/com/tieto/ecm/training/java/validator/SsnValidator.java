@@ -11,7 +11,7 @@ public class SsnValidator {
 
 
 	/**
-	 * Validate provided Ssn 
+	 * Validate provided Finnish Ssn 
 	 * 
 	 * @param ssn - String value with Social security number
 	 * @return boolean value if provided Ssn is valid or not
@@ -32,6 +32,11 @@ public class SsnValidator {
 		return true;
 	}
 
+	/**
+	 * Validate syntax
+	 * @param ssn
+	 * @return boolean value if provided Ssn has valid syntax
+	 */
 	boolean isValidSyntax(String ssn) {
 		// Skip null values
 		if (ssn == null) {
@@ -47,6 +52,11 @@ public class SsnValidator {
 		return true;
 	}
 
+	/**
+	 * Validate semantics
+	 * @param ssn
+	 * @return boolean value if provided Ssn contains real date
+	 */
 	boolean isValidSemantics(String ssn) {
 		// Extract century - should we use Enum or Map for + - A???
 		String century = "";
@@ -71,7 +81,11 @@ public class SsnValidator {
 		return true;
 	}
 
-	
+	/**
+	 * Validate checksum
+	 * @param ssn
+	 * @return boolean value if provided Ssn contains valid checksum
+	 */
 	boolean isValidChecksum(String ssn) {
 		// Extract 9 digit form DDMMYYZZZ (removed C and Q)
 		int checkSum = Integer.valueOf(String.format("%s%s", ssn.substring(0, 6), ssn.substring(7, 10)));
