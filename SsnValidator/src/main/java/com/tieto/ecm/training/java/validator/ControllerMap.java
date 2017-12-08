@@ -7,40 +7,40 @@ public class ControllerMap {
 	static final Map<Integer, Character> controllerMap = createMap();
 
 	private static Map<Integer, Character> createMap() {
-		Map<Integer, Character> myMap = new HashMap<Integer, Character>();
-		myMap.put(0, '0');
-		myMap.put(1, '1');
-		myMap.put(2, '2');
-		myMap.put(3, '3');
-		myMap.put(4, '4');
-		myMap.put(5, '5');
-		myMap.put(6, '6');
-		myMap.put(7, '7');
-		myMap.put(8, '8');
-		myMap.put(9, '9');
-		myMap.put(10, 'A');
-		myMap.put(11, 'B');
-		myMap.put(12, 'C');
-		myMap.put(13, 'D');
-		myMap.put(14, 'E');
-		myMap.put(15, 'F');
-		myMap.put(16, 'H');
-		myMap.put(17, 'J');
-		myMap.put(18, 'K');
-		myMap.put(19, 'L');
-		myMap.put(20, 'M');
-		myMap.put(21, 'N');
-		myMap.put(22, 'P');
-		myMap.put(23, 'R');
-		myMap.put(24, 'S');
-		myMap.put(25, 'T');
-		myMap.put(26, 'U');
-		myMap.put(27, 'V');
-		myMap.put(28, 'W');
-		myMap.put(29, 'X');
-		myMap.put(30, 'Y');
+		Map<Integer, Character> controllerMap = new HashMap<Integer, Character>();
+		controllerMap.put(0, '0');
+		controllerMap.put(1, '1');
+		controllerMap.put(2, '2');
+		controllerMap.put(3, '3');
+		controllerMap.put(4, '4');
+		controllerMap.put(5, '5');
+		controllerMap.put(6, '6');
+		controllerMap.put(7, '7');
+		controllerMap.put(8, '8');
+		controllerMap.put(9, '9');
+		controllerMap.put(10, 'A');
+		controllerMap.put(11, 'B');
+		controllerMap.put(12, 'C');
+		controllerMap.put(13, 'D');
+		controllerMap.put(14, 'E');
+		controllerMap.put(15, 'F');
+		controllerMap.put(16, 'H');
+		controllerMap.put(17, 'J');
+		controllerMap.put(18, 'K');
+		controllerMap.put(19, 'L');
+		controllerMap.put(20, 'M');
+		controllerMap.put(21, 'N');
+		controllerMap.put(22, 'P');
+		controllerMap.put(23, 'R');
+		controllerMap.put(24, 'S');
+		controllerMap.put(25, 'T');
+		controllerMap.put(26, 'U');
+		controllerMap.put(27, 'V');
+		controllerMap.put(28, 'W');
+		controllerMap.put(29, 'X');
+		controllerMap.put(30, 'Y');
 		
-		return myMap;
+		return controllerMap;
 	}
 
 }
