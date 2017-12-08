@@ -1,5 +1,8 @@
 # Create Ssn (Social security number) validator for Finns
 
+*	Rules for Ssn is defined in https://en.wikipedia.org/wiki/National_identification_number 
+*	Use http://www.fakenamegenerator.com for generating test values.
+
 ## Issues
 1.	
 
@@ -7,7 +10,6 @@
 1.	ResolverStyle.STRICT use for exact days (not 32 Jan -> 1 Feb and so on)
 	* See https://stackoverflow.com/a/39649815/2886891
 	
-
 ## Questions
 1.	Should we catch DateTimeParseException and return false? For example SsnValidatorTest.isValidSemanticsWrongDay
 	* Answer: 
