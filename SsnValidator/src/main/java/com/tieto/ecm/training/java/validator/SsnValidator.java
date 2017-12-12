@@ -18,6 +18,12 @@ public class SsnValidator {
 	 * @return boolean value if provided Ssn is valid or not
 	 */
 	boolean isValidSsn(String ssn) {
+		if (ssn == null) {
+			return false;
+		}
+		
+		ssn = ssn.trim().toUpperCase();
+		
 		if (! isValidSyntax(ssn)) {
 			return false;
 		}
@@ -39,13 +45,8 @@ public class SsnValidator {
 	 * @return boolean value if provided Ssn has valid syntax
 	 */
 	boolean isValidSyntax(String ssn) {
-		// Skip null values
-		if (ssn == null) {
-			return false;
-		}
-		
 		// Check syntax of ssn DDMMYYCZZZQ
-		if (! ssn.matches("[0-3][0-9][01][0-9]{3}[-|+|A][0-9]{3}[0-9A-Y]")) {
+		if (! ssn.matches("(0[1-9]|[12][0-9]|3[0-1])(0[1-9]|1[0-2])[0-9]{2}[-|+|A][0-9]{3}[0-9A-FHJ-NP-Y]")) {
 			return false;
 		}
 		

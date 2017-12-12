@@ -17,12 +17,6 @@ class SsnValidatorTest {
 	}
 
 	// Syntax checks
-	@DisplayName("Ssn with null")
-	@Test
-	void isValidSyntaxNull() {
-		assertFalse(ssnValidator.isValidSyntax(null));	
-	}
-	
 	@DisplayName("Ssn with more chars")
 	@Test
 	void isValidSyntaxMoreChars() {
