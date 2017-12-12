@@ -8,7 +8,8 @@ import java.time.format.ResolverStyle;
 public class SsnValidator {
 
 	private static final int CHECKSUM_DIVIDER = 31;
-
+	private static final char[] CHECK_SUMS = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D',
+			'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y' };
 
 	/**
 	 * Validate provided Finnish Ssn 
@@ -89,10 +90,10 @@ public class SsnValidator {
 	boolean isValidChecksum(String ssn) {
 		// Extract 9 digit form DDMMYYZZZ (removed C and Q)
 		int checkSum = Integer.valueOf(String.format("%s%s", ssn.substring(0, 6), ssn.substring(7, 10)));
-		char controlChar = ssn.charAt(ssn.length() - 1);
 		int remainder = checkSum % CHECKSUM_DIVIDER;
-		// Compare remainder with control char defined in map
-		if (ControllerMap.controllerMap.get(remainder).equals(controlChar)) {
+		char controlChar = ssn.charAt(ssn.length() - 1);
+		// Compare remainder with control char defined in Char array
+		if (CHECK_SUMS[remainder] == controlChar) {
 			return true;
 		}
 		return false;
