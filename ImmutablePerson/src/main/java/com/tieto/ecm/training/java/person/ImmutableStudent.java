@@ -3,8 +3,8 @@ package com.tieto.ecm.training.java.person;
 import java.util.Objects;
 
 public class ImmutableStudent {
-	private MutablePerson person;
-	private int year;
+	private final MutablePerson person;
+	private final int year;
 
 	public ImmutableStudent(MutablePerson person, int year) {
 		this.person = new MutablePerson(person.getFirstName(), person.getLastName(), person.getBirthDay(), person.isBald());

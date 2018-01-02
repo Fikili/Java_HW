@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class ImmutablePerson {
-	private String firstName;
-	private String lastName;
-	private LocalDate birthDay;
-	private boolean bald;
+	private final String firstName;
+	private final String lastName;
+	private final LocalDate birthDay;
+	private final boolean bald;
 
 	public ImmutablePerson(String firstName, String lastName, LocalDate birthDay, boolean bald) {
 		this.firstName = firstName;
