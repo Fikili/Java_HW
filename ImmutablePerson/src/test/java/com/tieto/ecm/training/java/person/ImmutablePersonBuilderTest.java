@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.security.InvalidParameterException;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
@@ -18,7 +20,15 @@ class ImmutablePersonBuilderTest {
 		assertAll(() -> assertEquals("Filip", person.getFirstName()),
 				() -> assertEquals("Bruska", person.getLastName()),
 				() -> assertEquals(LocalDate.of(1999, 12, 31), person.getBirthDay()),
-				() -> assertFalse(person.isBald()));
+				() -> assertFalse(person.isBald())		
+		);
+	}
+	
+	@Test
+	void illegalArgumentsPersonBuilder() {
+		assertThrows(InvalidParameterException.class, 
+				() -> ImmutablePersonBuilder.builder().firstName("Filip").birthDay(LocalDate.of(1999, 12, 31)).bald(false).build()
+		);
 	}
 	
 	@Test
