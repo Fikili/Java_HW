@@ -1,5 +1,6 @@
 package com.tieto.ecm.training.java.person;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
@@ -22,4 +23,13 @@ class ImmutableStudentTest {
 		);
 	}
 
+	@Test
+	void objectComparison() {
+		ImmutableStudent immutableStudent1 = new ImmutableStudent(new MutablePerson("Filip", "Bruska", LocalDate.of(1999, 01, 01), false), 2);
+		ImmutableStudent immutableStudent2 = new ImmutableStudent(new MutablePerson("Filip", "Bruska", LocalDate.of(1999, 01, 01), false), 2);
+		assertAll(() -> assertEquals(immutableStudent1, immutableStudent2),
+			() -> assertNotSame(immutableStudent1, immutableStudent2),
+			() -> assertTrue(immutableStudent1.hashCode() == immutableStudent2.hashCode())
+		);
+	}
 }
