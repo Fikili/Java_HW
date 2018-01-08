@@ -28,18 +28,16 @@ class PersonTest {
 		assertAll(() -> assertEquals("Filip", person.getFirstName()),
 				() -> assertEquals("Bruska", person.getLastName()),
 				() -> assertEquals(LocalDate.of(1999, 12, 31), person.getBirthDay()),
-				() -> assertFalse(person.isBald())		
-		);
+				() -> assertFalse(person.isBald()));
 	}
-	
+
 	@DisplayName("Test for NPE in case of instatiating Person without surname")
 	@Test
 	void illegalArgumentsPersonBuilder() {
-		assertThrows(NullPointerException.class, 
-				() -> Person.builder().firstName("Filip").birthDay(LocalDate.of(1999, 12, 31)).bald(false).build()
-		);
+		assertThrows(NullPointerException.class,
+				() -> Person.builder().firstName("Filip").birthDay(LocalDate.of(1999, 12, 31)).bald(false).build());
 	}
-	
+
 	@DisplayName("Object comparison test for verifying equals and hashCode")
 	@Test
 	void objectComparison() {
@@ -56,32 +54,31 @@ class PersonTest {
 				.bald(false)
 				.build();
 		assertAll(() -> assertEquals(person1, person2),
-			() -> assertNotSame(person1, person2),
-			() -> assertTrue(person1.hashCode() == person2.hashCode())
-		);
+				() -> assertNotSame(person1, person2),
+				() -> assertTrue(person1.hashCode() == person2.hashCode()));
 	}
-	
+
 	@DisplayName("Compare P1 (Filip AAAA) with P2 (Filip Baaaa)")
 	@Test
 	void compareDifferentSurname() {
 		assertTrue(P1.compareTo(P2) < 0);
 		assertTrue(P2.compareTo(P1) > 0);
 	}
-	
+
 	@DisplayName("Compare P5 (Adam Bruska) with P6 (Filip Bruska)")
 	@Test
 	void compareSameSurnameDifferentFirstName() {
 		assertTrue(P5.compareTo(P6) < 0);
 		assertTrue(P6.compareTo(P5) > 0);
 	}
-	
+
 	@DisplayName("Compare P8 (Filip Bruska) with P9 (Filip Bruskaaa)")
 	@Test
 	void compareLongerSurname() {
 		assertTrue(P8.compareTo(P9) < 0);
 		assertTrue(P9.compareTo(P8) > 0);
 	}
-	
+
 	@DisplayName("Compare P8 (Filip Bruska) with P9 (Filip Bruska)")
 	@Test
 	void compareSameSurnameAndFirstName() {

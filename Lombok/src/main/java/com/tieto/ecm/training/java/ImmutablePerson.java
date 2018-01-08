@@ -6,7 +6,7 @@ import lombok.Value;
 
 @Value
 public class ImmutablePerson {
-	
+
 	private String firstName;
 	private String lastName;
 	private LocalDate birthDay;
