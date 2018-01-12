@@ -4,7 +4,14 @@ import java.lang.reflect.Array;
 
 public class ArrayHandler {
 
-	public <T extends Comparable<T>> T[] findMaxObjects(T[] input, int n) {
+	/**
+	 * Find first n objects using results from Comparable interface
+	 * 
+	 * @param input
+	 * @param n
+	 * @return
+	 */
+	public <T extends Comparable<T>> T[] findMinObjects(T[] input, int n) {
 		if (n < 0) {
 			throw new IllegalArgumentException("Parameter n cannot be negative number");
 		}
@@ -32,7 +39,7 @@ public class ArrayHandler {
 
 	private <T> T[] createEmptyArray(int n, T[] template) {
 		final Class<T> templ = (Class<T>) template.getClass().getComponentType();
-		return  (T[]) Array.newInstance(templ, n);
+		return (T[]) Array.newInstance(templ, n);
 	}
 
 	private <T> T[] removeEmptyVals(T[] orderedArray) {
